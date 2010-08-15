@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript">
+		
+		function respondToMessage (messageEvent) {
+			if (messageEvent.name == "getTabSizeValue") {
+				var value = safari.extension.settings.tabSize;
+				messageEvent.target.page.dispatchMessage("gotTabSizeValue", value);
+			}
+		}
+		
+		safari.application.addEventListener("message", respondToMessage, false);
+		
+	</script>
+</head>
+
+<body>
+</body>
+</html>

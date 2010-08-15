@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>DefaultValue</key>
+		<real>4</real>
+		<key>Key</key>
+		<string>tabSize</string>
+		<key>Title</key>
+		<string>Tab Size</string>
+		<key>Titles</key>
+		<array>
+			<string>2</string>
+			<string>3</string>
+			<string>4</string>
+			<string>8</string>
+		</array>
+		<key>Type</key>
+		<string>PopUpButton</string>
+		<key>Values</key>
+		<array>
+			<real>2</real>
+			<real>3</real>
+			<real>4</real>
+			<real>8</real>
+		</array>
+	</dict>
+</array>
+</plist>
