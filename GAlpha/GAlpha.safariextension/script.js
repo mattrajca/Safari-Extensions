@@ -1,7 +1,7 @@
 var resultType = XPathResult.ORDERED_NODE_SNAPSHOT_TYPE;
 
-var inputArea = document.evaluate("html/body/center/form/table/tbody/tr/td",
-								  document, null, resultType, null).snapshotItem(0);
+var inputArea = document.evaluate("html/body/span/center/span/center/form/table/tbody/tr/td",
+								  document, null, resultType, null).snapshotItem(1);
 
 var luckyButton = document.evaluate("//span/span/input",
 									inputArea, null, resultType, null).snapshotItem(1);

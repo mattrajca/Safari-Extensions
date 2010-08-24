@@ -11,9 +11,9 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.1</string>
+	<string>1.2</string>
 	<key>CFBundleVersion</key>
-	<string>4</string>
+	<string>5</string>
 	<key>Chrome</key>
 	<dict/>
 	<key>Content</key>
@@ -400,7 +400,7 @@
 		</array>
 	</dict>
 	<key>Description</key>
-	<string>Adds a Wolfram Alpha search button to Google&apos;s homepage</string>
+	<string>Adds a Wolfram Alpha search button to Google's homepage</string>
 	<key>ExtensionInfoDictionaryVersion</key>
 	<string>1.0</string>
 	<key>Permissions</key>
