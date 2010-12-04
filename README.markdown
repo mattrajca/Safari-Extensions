@@ -3,7 +3,6 @@ Safari-Extensions
 
 Various Safari Extensions.
 
-* [GAlpha](http://github.com/mattrajca/Safari-Extensions/tree/master/GAlpha/)
 * [GitTab](http://github.com/mattrajca/Safari-Extensions/tree/master/GitTab/)
 * [Listen-in-Snowtape](http://github.com/mattrajca/Safari-Extensions/tree/master/Listen-in-Snowtape/)
 
