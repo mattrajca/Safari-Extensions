@@ -11,9 +11,9 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.1</string>
+	<string>1.2</string>
 	<key>CFBundleVersion</key>
-	<string>2</string>
+	<string>3</string>
 	<key>Chrome</key>
 	<dict>
 		<key>Global Page</key>
@@ -31,6 +31,7 @@
 		<key>Whitelist</key>
 		<array>
 			<string>http://github.com/*</string>
+			<string>https://github.com/*</string>
 		</array>
 	</dict>
 	<key>Description</key>
@@ -45,6 +46,8 @@
 			<array>
 				<string>github.com</string>
 			</array>
+			<key>Include Secure Pages</key>
+			<true/>
 			<key>Level</key>
 			<string>Some</string>
 		</dict>

@@ -1,10 +1,10 @@
 Safari-Extensions
 =================
 
-Various Safari Extensions.
+A repository of various Safari Extensions.
 
 * [GitTab](http://github.com/mattrajca/Safari-Extensions/tree/master/GitTab/)
-* [Listen-in-Snowtape](http://github.com/mattrajca/Safari-Extensions/tree/master/Listen-in-Snowtape/)
+* [Listen in Snowtape](http://github.com/mattrajca/Safari-Extensions/tree/master/Listen-in-Snowtape/)
 
 Issues
 ------
