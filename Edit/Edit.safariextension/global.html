@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript">
+		
+		function performCommand (event) {
+			if (event.command === "toggleEdit") {
+				safari.application.activeBrowserWindow.activeTab.page.dispatchMessage("toggleEdit", null);
+			}
+		}
+		
+		safari.application.addEventListener("command", performCommand, false);
+		
+	</script>
+</head>
+
+<body>
+</body>
+</html>
