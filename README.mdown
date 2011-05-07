@@ -3,8 +3,8 @@ Safari-Extensions
 
 A repository of various Safari Extensions.
 
+* [Edit](http://github.com/mattrajca/Safari-Extensions/tree/master/Edit/)
 * [GitTab](http://github.com/mattrajca/Safari-Extensions/tree/master/GitTab/)
-* [Listen in Snowtape](http://github.com/mattrajca/Safari-Extensions/tree/master/Listen-in-Snowtape/)
 
 Issues
 ------
