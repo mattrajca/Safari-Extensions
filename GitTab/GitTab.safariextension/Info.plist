@@ -53,8 +53,8 @@
 		</dict>
 	</dict>
 	<key>Update Manifest URL</key>
-	<string>http://github.com/mattrajca/Safari-Extensions/raw/master/GitTab/latest.plist</string>
+	<string>https://github.com/mattrajca/Safari-Extensions/raw/master/GitTab/latest.plist</string>
 	<key>Website</key>
-	<string>http://github.com/mattrajca/Safari-Extensions/raw/master/GitTab/</string>
+	<string>https://github.com/mattrajca/Safari-Extensions/raw/master/GitTab/</string>
 </dict>
 </plist>

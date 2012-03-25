@@ -47,7 +47,7 @@
 		</dict>
 	</dict>
 	<key>Description</key>
-	<string>Marks the current active page as editable</string>
+	<string>Marks the active page as editable</string>
 	<key>ExtensionInfoDictionaryVersion</key>
 	<string>1.0</string>
 	<key>Permissions</key>
@@ -61,8 +61,8 @@
 		</dict>
 	</dict>
 	<key>Update Manifest URL</key>
-	<string>http://github.com/mattrajca/Safari-Extensions/raw/master/Edit/latest.plist</string>
+	<string>https://github.com/mattrajca/Safari-Extensions/raw/master/Edit/latest.plist</string>
 	<key>Website</key>
-	<string>http://github.com/mattrajca/Safari-Extensions/raw/master/Edit/</string>
+	<string>https://github.com/mattrajca/Safari-Extensions/raw/master/Edit/</string>
 </dict>
 </plist>
