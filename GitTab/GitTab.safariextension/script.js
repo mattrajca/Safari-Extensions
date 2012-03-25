@@ -1,5 +1,5 @@
 function gotMessage (anEvent) {
-	if (anEvent.name == "gotTabSizeValue") {
+	if (anEvent.name === "gotTabSizeValue") {
 		var highlights = document.getElementsByClassName('highlight');
 		var tabSize = anEvent.message;
 		var replacementString = '';
