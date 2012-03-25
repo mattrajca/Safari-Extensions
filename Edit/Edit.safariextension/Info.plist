@@ -32,7 +32,7 @@
 				<key>Palette Label</key>
 				<string>Edit</string>
 				<key>Tool Tip</key>
-				<string>Marks the current page as editable</string>
+				<string>Marks the active page as editable</string>
 			</dict>
 		</array>
 	</dict>
