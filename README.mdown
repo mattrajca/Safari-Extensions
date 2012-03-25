@@ -3,10 +3,10 @@ Safari-Extensions
 
 A repository of various Safari Extensions.
 
-* [Edit](http://github.com/mattrajca/Safari-Extensions/tree/master/Edit/)
-* [GitTab](http://github.com/mattrajca/Safari-Extensions/tree/master/GitTab/)
+* [Edit](https://github.com/mattrajca/Safari-Extensions/tree/master/Edit)
+* [GitTab](https://github.com/mattrajca/Safari-Extensions/tree/master/GitTab)
 
 Issues
 ------
 
-You may report any issues or feature requests [here](http://github.com/mattrajca/Safari-Extensions/issues).
+You may report any issues or feature requests [here](https://github.com/mattrajca/Safari-Extensions/issues).

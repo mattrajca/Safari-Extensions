@@ -61,8 +61,8 @@
 		</dict>
 	</dict>
 	<key>Update Manifest URL</key>
-	<string>https://github.com/mattrajca/Safari-Extensions/raw/master/Edit/latest.plist</string>
+	<string>https://raw.github.com/mattrajca/Safari-Extensions/master/Edit/latest.plist</string>
 	<key>Website</key>
-	<string>https://github.com/mattrajca/Safari-Extensions/raw/master/Edit/</string>
+	<string>https://github.com/mattrajca/Safari-Extensions/tree/master/Edit</string>
 </dict>
 </plist>
