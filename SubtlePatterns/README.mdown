@@ -1,6 +1,6 @@
 Subtle Patterns
 ===============
 
-This Safari Extension lets web designers preview [Subtle Patterns](http://subtlepatterns.com) as their websites' background.
+This Safari Extension lets web designers preview [Subtle Patterns](http://subtlepatterns.com) as their websites' background. Stable releases can be found on the [Downloads](https://github.com/mattrajca/Safari-Extensions/downloads) page.
 
 ![Subtle Patterns Extension Screenshot](http://dl.dropbox.com/u/321814/images/SubtlePatterns.png)

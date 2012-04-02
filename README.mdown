@@ -1,7 +1,7 @@
 Safari-Extensions
 =================
 
-A repository of various Safari Extensions.
+A repository of various Safari Extensions. Stable releases can be found on the [Downloads](https://github.com/mattrajca/Safari-Extensions/downloads) page.
 
 * [Edit](https://github.com/mattrajca/Safari-Extensions/tree/master/Edit)
 * [GitTab](https://github.com/mattrajca/Safari-Extensions/tree/master/GitTab)
