@@ -5,6 +5,7 @@ A repository of various Safari Extensions.
 
 * [Edit](https://github.com/mattrajca/Safari-Extensions/tree/master/Edit)
 * [GitTab](https://github.com/mattrajca/Safari-Extensions/tree/master/GitTab)
+* [SubtlePatterns](https://github.com/mattrajca/Safari-Extensions/tree/master/SubtlePatterns)
 
 Issues
 ------

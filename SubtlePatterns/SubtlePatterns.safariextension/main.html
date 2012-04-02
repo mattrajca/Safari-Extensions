@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Subtle Patterns</title>
+	
+	<style type="text/css">
+		
+		body {
+			font-family: Helvetica;
+			overflow: hidden;
+			-webkit-user-select: none;
+		}
+		div.square {
+			width: 64px;
+			height: 64px;
+			margin-right: 8px;
+			margin-bottom: 8px;
+			float: left;
+			border: 1px solid rgb(140, 140, 140);
+		}
+		.square.selected {
+			border: 1px solid blue;
+			-webkit-box-shadow: 0 0 2px blue;
+		}
+		.square.last {
+			margin-right: 0;
+		}
+		#navigation {
+			position: absolute;
+			bottom: 10px;
+			width: 288px;
+		}
+		button {
+			margin: 0;
+			padding: 4px 8px;
+			outline-style: none;
+			background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(247, 247, 247)), to(rgb(215, 215, 215)));
+			border: 1px solid rgb(160, 160, 160);
+			font-size: 12px;
+			color: rgb(60, 60, 60);
+			text-decoration: none;
+			text-shadow: 0 1px 1px white;
+			-webkit-border-radius: 6px;
+		}
+		button[disabled], button[disabled]:hover, button[disabled]:active {
+			background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(252, 252, 252)), to(rgb(242, 242, 242)));
+			border: 1px solid rgb(200, 200, 200);
+			color: rgb(140, 140, 140);
+			cursor: default;
+		}
+		button:hover {
+			background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(237, 237, 237)), to(rgb(205, 205, 205)));
+		}
+		button:active {
+			background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(227, 227, 227)), to(rgb(195, 195, 195)));
+		}
+		.left {
+			float: left;
+		}
+		.right {
+			float: right;
+		}
+		div.clearFix {
+			clear: both;
+		}
+		
+	</style>
+	
+	<script type="text/javascript">
+		
+		const ITEMS_PER_PAGE = 12;
+		
+		var offset = 0;
+		var patterns = null;
+		var lastOffset = 0;
+		var highlightedSquare = null;
+		
+		function loaded() {
+			var script = document.createElement('script');
+			script.src = "http://dl.dropbox.com/u/321814/patterns.json";
+			
+			document.body.appendChild(script);
+		}
+		
+		function loadedPatterns (data) {
+			patterns = data;
+			
+			if (!patterns) {
+				alert("Invalid patterns data");
+				return;
+			}
+			
+			lastOffset = Math.floor(parseFloat(patterns.length) / ITEMS_PER_PAGE) * ITEMS_PER_PAGE;
+			
+			displayPatternsAtCurrentOffset();
+		}
+		
+		function loadedThumbnail() {
+			var container = document.getElementById("patterns");
+			var squares = container.getElementsByClassName("square");
+			
+			var square = squares[this.n-offset];
+			
+			square.style.backgroundImage = "url(" + this.src + ")";
+		}
+		
+		function displayPatternsAtCurrentOffset() {
+			highlightedSquare = null;
+			
+			var container = document.getElementById("patterns");
+			var squares = container.getElementsByClassName("square");
+			
+			var size = Math.min(offset + ITEMS_PER_PAGE, patterns.length);
+			
+			for (var n = offset; n < offset + ITEMS_PER_PAGE; n++) {
+				var pattern = patterns[n];
+				var square = squares[n-offset];
+				
+				var cn = square.className;
+				
+				if (cn.substr(-9) == " selected") {
+					square.className = cn.substring(0, cn.length - 9);
+				}
+				
+				square.style.backgroundImage = "none";
+				
+				if (n >= size) {
+					square.style.display = "none";
+					square.title = "";
+				}
+				else {
+					square.style.display = "block";
+					square.title = pattern.title;
+					
+					var i = new Image();
+					i.n = n;
+					i.onload = loadedThumbnail;
+					i.src = "http://subtlepatterns.com/patterns/" + pattern.filename;
+				}
+			}
+		}
+		
+		function previousPage() {
+			offset -= ITEMS_PER_PAGE;
+			displayPatternsAtCurrentOffset();
+			
+			if (offset == 0) {
+				document.getElementById("lb").setAttribute("disabled", "disabled");
+			}
+			
+			if (offset < lastOffset) {
+				document.getElementById("rb").removeAttribute("disabled");
+			}
+		}
+		
+		function nextPage() {
+			offset += ITEMS_PER_PAGE;
+			displayPatternsAtCurrentOffset();
+			
+			if (offset > 0) {
+				document.getElementById("lb").removeAttribute("disabled");
+			}
+			
+			if (offset == lastOffset) {
+				document.getElementById("rb").setAttribute("disabled", "disabled");
+			}
+		}
+		
+		function changeBg (e) {
+			if (e.style.display == "none")
+				return;
+			
+			e.className += " selected";
+			
+			if (highlightedSquare) {
+				var cn = highlightedSquare.className;
+				highlightedSquare.className = cn.substring(0, cn.length - 9);
+			}
+			
+			highlightedSquare = e;
+			
+			safari.application.activeBrowserWindow.activeTab.page.dispatchMessage("changeBg", e.style.backgroundImage);
+		}
+		
+	</script>
+</head>
+
+<body onload="loaded();">
+	<div id="container">
+		<div id="patterns">
+			<div class="square" onclick="changeBg(this);"></div>
+			<div class="square" onclick="changeBg(this);"></div>
+			<div class="square" onclick="changeBg(this);"></div>
+			<div class="square last" onclick="changeBg(this);"></div>
+			
+			<div class="square" onclick="changeBg(this);"></div>
+			<div class="square" onclick="changeBg(this);"></div>
+			<div class="square" onclick="changeBg(this);"></div>
+			<div class="square last" onclick="changeBg(this);"></div>
+			
+			<div class="square" onclick="changeBg(this);"></div>
+			<div class="square" onclick="changeBg(this);"></div>
+			<div class="square" onclick="changeBg(this);"></div>
+			<div class="square last" onclick="changeBg(this);"></div>
+		</div>
+		
+		<div class="clearFix"></div>
+		
+		<div id="navigation">
+			<button id="lb" disabled="disabled" onclick="previousPage();" class="left">Previous Page</a>
+			<button id="rb" onclick="nextPage();" class="right">Next Page</a>
+		</div>
+		
+		<div class="clearFix"></div>
+	</div>
+</body>
+</html>

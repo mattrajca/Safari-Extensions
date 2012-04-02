@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Author</key>
+	<string>Matt Rajca</string>
+	<key>CFBundleDisplayName</key>
+	<string>Subtle Patterns</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.MattRajca.safari.SubtlePatterns</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>Chrome</key>
+	<dict>
+		<key>Popovers</key>
+		<array>
+			<dict>
+				<key>Filename</key>
+				<string>main.html</string>
+				<key>Height</key>
+				<real>270</real>
+				<key>Identifier</key>
+				<string>main</string>
+				<key>Width</key>
+				<real>304</real>
+			</dict>
+		</array>
+		<key>Toolbar Items</key>
+		<array>
+			<dict>
+				<key>Identifier</key>
+				<string>subtle-patterns</string>
+				<key>Image</key>
+				<string>toolbar_icon.png</string>
+				<key>Label</key>
+				<string>Subtle Patterns</string>
+				<key>Palette Label</key>
+				<string>Subtle Patterns</string>
+				<key>Popover</key>
+				<string>main</string>
+				<key>Tool Tip</key>
+				<string>Subtle Patterns</string>
+			</dict>
+		</array>
+	</dict>
+	<key>Content</key>
+	<dict>
+		<key>Scripts</key>
+		<dict>
+			<key>End</key>
+			<array>
+				<string>inject.js</string>
+			</array>
+		</dict>
+	</dict>
+	<key>Description</key>
+	<string>Lets web designers preview Subtle Patterns as their websites' background</string>
+	<key>ExtensionInfoDictionaryVersion</key>
+	<string>1.0</string>
+	<key>Permissions</key>
+	<dict>
+		<key>Website Access</key>
+		<dict>
+			<key>Include Secure Pages</key>
+			<true/>
+			<key>Level</key>
+			<string>All</string>
+		</dict>
+	</dict>
+	<key>Update Manifest URL</key>
+	<string>https://raw.github.com/mattrajca/Safari-Extensions/master/SubtlePatterns/latest.plist</string>
+	<key>Website</key>
+	<string>https://github.com/mattrajca/Safari-Extensions/tree/master/SubtlePatterns</string>
+</dict>
+</plist>
