@@ -81,6 +81,8 @@
 			script.src = "http://dl.dropbox.com/u/321814/patterns.json";
 			
 			document.body.appendChild(script);
+			
+			document.body.addEventListener("keydown", keyDown, false);
 		}
 		
 		function loadedPatterns (data) {
@@ -128,15 +130,20 @@
 				if (n >= size) {
 					square.style.display = "none";
 					square.title = "";
+					
+					square.setAttribute("meta-url", "");
 				}
 				else {
+					var url = "http://subtlepatterns.com/patterns/" + pattern.filename;
 					square.style.display = "block";
 					square.title = pattern.title;
+					
+					square.setAttribute("meta-url", "url(" + url + ")");
 					
 					var i = new Image();
 					i.n = n;
 					i.onload = loadedThumbnail;
-					i.src = "http://subtlepatterns.com/patterns/" + pattern.filename;
+					i.src = url;
 				}
 			}
 		}
@@ -167,23 +174,62 @@
 			}
 		}
 		
-		function changeBg (e) {
-			if (e.style.display == "none")
+		function highlightSquareAtIndex (index) {
+			if (index < 0 || index >= patterns.length)
 				return;
 			
-			e.className += " selected";
+			if (index < offset) {
+				previousPage();
+			}
+			else if (index >= (offset + ITEMS_PER_PAGE)) {
+				nextPage();
+			}
+			
+			var newRelativeIndex = index % ITEMS_PER_PAGE;
+			var square = document.getElementById(newRelativeIndex.toString());
+			
+			if (square.style.display == "none")
+				return;
+			
+			square.className += " selected";
 			
 			if (highlightedSquareIndex != -1) {
-				var index = highlightedSquareIndex % ITEMS_PER_PAGE;
-				var highlightedSquare = document.getElementById(index.toString());
+				var relativeIndex = highlightedSquareIndex % ITEMS_PER_PAGE;
+				var highlightedSquare = document.getElementById(relativeIndex.toString());
 				
 				var cn = highlightedSquare.className;
 				highlightedSquare.className = cn.substring(0, cn.length - 9);
 			}
 			
-			highlightedSquareIndex = offset + parseInt(e.id);
+			highlightedSquareIndex = index;
 			
-			safari.application.activeBrowserWindow.activeTab.page.dispatchMessage("changeBg", e.style.backgroundImage);
+			safari.application.activeBrowserWindow.activeTab.page.dispatchMessage("changeBg", square.getAttribute("meta-url"));
+		}
+		
+		function changeBg (e) {
+			highlightSquareAtIndex(offset + parseInt(e.id));
+		}
+		
+		function keyDown (e) {
+			if (highlightedSquareIndex == -1)
+				return;
+			
+			if (e.keyCode == 37) {
+				// left
+				highlightSquareAtIndex(highlightedSquareIndex-1);
+			}
+			else if (e.keyCode == 39) {
+				// right
+				highlightSquareAtIndex(highlightedSquareIndex+1);
+			}
+			else if (e.keyCode == 38) {
+				// up
+				highlightSquareAtIndex(highlightedSquareIndex-4);
+			}
+			else if (e.keyCode == 40) {
+				// down
+				highlightSquareAtIndex(highlightedSquareIndex+4);
+			}
 		}
 		
 	</script>
