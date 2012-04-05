@@ -74,7 +74,7 @@
 		var offset = 0;
 		var patterns = null;
 		var lastOffset = 0;
-		var highlightedSquare = null;
+		var highlightedSquareIndex = -1;
 		
 		function loaded() {
 			var script = document.createElement('script');
@@ -106,7 +106,7 @@
 		}
 		
 		function displayPatternsAtCurrentOffset() {
-			highlightedSquare = null;
+			highlightedSquareIndex = -1;
 			
 			var container = document.getElementById("patterns");
 			var squares = container.getElementsByClassName("square");
@@ -173,12 +173,15 @@
 			
 			e.className += " selected";
 			
-			if (highlightedSquare) {
+			if (highlightedSquareIndex != -1) {
+				var index = highlightedSquareIndex % ITEMS_PER_PAGE;
+				var highlightedSquare = document.getElementById(index.toString());
+				
 				var cn = highlightedSquare.className;
 				highlightedSquare.className = cn.substring(0, cn.length - 9);
 			}
 			
-			highlightedSquare = e;
+			highlightedSquareIndex = offset + parseInt(e.id);
 			
 			safari.application.activeBrowserWindow.activeTab.page.dispatchMessage("changeBg", e.style.backgroundImage);
 		}
@@ -189,20 +192,20 @@
 <body onload="loaded();">
 	<div id="container">
 		<div id="patterns">
-			<div class="square" onclick="changeBg(this);"></div>
-			<div class="square" onclick="changeBg(this);"></div>
-			<div class="square" onclick="changeBg(this);"></div>
-			<div class="square last" onclick="changeBg(this);"></div>
+			<div id="0" class="square" onclick="changeBg(this);"></div>
+			<div id="1" class="square" onclick="changeBg(this);"></div>
+			<div id="2" class="square" onclick="changeBg(this);"></div>
+			<div id="3" class="square last" onclick="changeBg(this);"></div>
 			
-			<div class="square" onclick="changeBg(this);"></div>
-			<div class="square" onclick="changeBg(this);"></div>
-			<div class="square" onclick="changeBg(this);"></div>
-			<div class="square last" onclick="changeBg(this);"></div>
+			<div id="4" class="square" onclick="changeBg(this);"></div>
+			<div id="5" class="square" onclick="changeBg(this);"></div>
+			<div id="6" class="square" onclick="changeBg(this);"></div>
+			<div id="7" class="square last" onclick="changeBg(this);"></div>
 			
-			<div class="square" onclick="changeBg(this);"></div>
-			<div class="square" onclick="changeBg(this);"></div>
-			<div class="square" onclick="changeBg(this);"></div>
-			<div class="square last" onclick="changeBg(this);"></div>
+			<div id="8" class="square" onclick="changeBg(this);"></div>
+			<div id="9" class="square" onclick="changeBg(this);"></div>
+			<div id="10" class="square" onclick="changeBg(this);"></div>
+			<div id="11" class="square last" onclick="changeBg(this);"></div>
 		</div>
 		
 		<div class="clearFix"></div>
