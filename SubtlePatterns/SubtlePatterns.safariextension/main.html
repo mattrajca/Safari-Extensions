@@ -211,6 +211,8 @@
 		}
 		
 		function keyDown (e) {
+			e.preventDefault();
+			
 			if (highlightedSquareIndex == -1)
 				return;
 			
