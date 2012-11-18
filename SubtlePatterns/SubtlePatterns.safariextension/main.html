@@ -32,13 +32,16 @@
 			width: 288px;
 		}
 		#selector {
-			width: 90px;
+			width: 97px;
+			height: 20px;
+			font-size: 12px;
+			color: rgb(60,60,60);
 			margin-left: 6px;
-			margin-right: 6px;
 		}
 		button {
 			margin: 0;
-			padding: 4px 8px;
+			padding-top: 4px;
+			padding-bottom: 4px;
 			outline-style: none;
 			background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(247, 247, 247)), to(rgb(215, 215, 215)));
 			border: 1px solid rgb(160, 160, 160);
@@ -59,6 +62,12 @@
 		}
 		button:active {
 			background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(227, 227, 227)), to(rgb(195, 195, 195)));
+		}
+		button.left {
+			padding-left: 8px;
+		}
+		button.right {
+			padding-right: 8px;
 		}
 		.left {
 			float: left;
@@ -286,7 +295,10 @@
 		
 		<div id="navigation">
 			<button id="lb" disabled="disabled" onclick="previousPage();" class="left">Previous Page</button>
-			<input type="text" id="selector" placeholder="body" tabindex="-1" onchange="changeSelector(this)"></input>
+			<input type="text" id="selector" placeholder="body" 
+				tabindex="-1" onchange="changeSelector(this)" 
+				title="CSS selector to which pattern is applied. By default, this is the page background.">
+			</input>
 			<button id="rb" onclick="nextPage();" class="right">Next Page</button>
 		</div>
 
