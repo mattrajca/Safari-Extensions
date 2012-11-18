@@ -31,6 +31,11 @@
 			bottom: 10px;
 			width: 288px;
 		}
+		#selector {
+			width: 90px;
+			margin-left: 6px;
+			margin-right: 6px;
+		}
 		button {
 			margin: 0;
 			padding: 4px 8px;
@@ -75,6 +80,7 @@
 		var patterns = null;
 		var lastOffset = 0;
 		var highlightedSquareIndex = -1;
+		var selector = "body";
 		
 		function loaded() {
 			var script = document.createElement('script');
@@ -203,14 +209,34 @@
 			
 			highlightedSquareIndex = index;
 			
-			safari.application.activeBrowserWindow.activeTab.page.dispatchMessage("changeBg", square.getAttribute("meta-url"));
+			var message = {
+				'image': square.getAttribute("meta-url"),
+				'selector': selector
+			};
+
+			safari.application.activeBrowserWindow.activeTab.page.dispatchMessage("changeBg", message);
 		}
 		
 		function changeBg (e) {
 			highlightSquareAtIndex(offset + parseInt(e.id));
 		}
+
+		function changeSelector(e) {
+			selector = document.querySelector("#selector").value;
+			if (selector == ""){
+				selector = "body";
+			}
+		}
 		
 		function keyDown (e) {
+			if ( document.querySelector("#selector") == document.activeElement ) {
+				if (e.keyCode == 13) {
+					changeSelector(document.querySelector("#selector"));
+					document.querySelector("#selector").blur();
+				}
+				return;
+			}
+
 			e.preventDefault();
 			
 			if (highlightedSquareIndex == -1)
@@ -259,10 +285,11 @@
 		<div class="clearFix"></div>
 		
 		<div id="navigation">
-			<button id="lb" disabled="disabled" onclick="previousPage();" class="left">Previous Page</a>
-			<button id="rb" onclick="nextPage();" class="right">Next Page</a>
+			<button id="lb" disabled="disabled" onclick="previousPage();" class="left">Previous Page</button>
+			<input type="text" id="selector" placeholder="body" tabindex="-1" onchange="changeSelector(this)"></input>
+			<button id="rb" onclick="nextPage();" class="right">Next Page</button>
 		</div>
-		
+
 		<div class="clearFix"></div>
 	</div>
 </body>
